@@ -1,0 +1,22 @@
+[build-system]
+requires = [
+    'setuptools',
+]
+build-backend = 'setuptools.build_meta'
+
+[project]
+version = '1.0.0'
+requires-python = '>=3.7'
+name = 'ft'
+description = 'A set of Python tools useful in everyday life.'
+readme = 'README.md'
+dependencies = [
+    'numpy',
+    'matplotlib',
+    'pandas',
+]
+
+[project.scripts]
+ft-priv-table = 'ft.priv_table:main'
+ft-replace-subject-codes = 'ft.replace_subject_codes:main'
+ft-test-result-tables = 'ft.test_result_tables:main'

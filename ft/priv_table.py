@@ -1,7 +1,7 @@
 from pandas import read_csv
 import tempfile, os, sys
 
-from formats import Table
+from .formats import Table
 
 
 def main():
@@ -12,7 +12,8 @@ def main():
     path = os.getcwd()
     html_title, fname = sys.argv[1:]
 
-    source = '/home/vegard/Dropbox/Skole/Priv/src/'
+    current_dir = os.path.dirname(__file__)
+    source = os.path.join(current_dir, 'src')
 
     df = read_csv(os.path.join(path, fname), keep_default_na=False)
     columns = {
