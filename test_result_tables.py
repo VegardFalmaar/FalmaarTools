@@ -61,10 +61,9 @@ def main():
 
     main_tex_fname = os.path.join(path, 'poengfordeling.tex')
     if not os.path.isfile(main_tex_fname):
-        shutil.copyfile(
-            '/home/vegard/Dropbox/Skole/NTG/poengfordeling_på_prover.tex',
-            main_tex_fname
-        )
+        current_dir = os.path.dirname(__file__)
+        src_fname = os.path.join(current_dir, 'src/test-scores.tex')
+        shutil.copyfile(src_fname, main_tex_fname)
 
     print(f'TeX files done! Move into the {path}/ directory')
     print('and run "pdflatex poengfordeling.tex" to compile.')
