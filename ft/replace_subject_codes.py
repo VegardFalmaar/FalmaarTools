@@ -4,15 +4,12 @@ from typing import List, Dict
 
 def parse_ics(text: List[str]) -> List[Dict[str, str]]:
     l = []
-    append = False
     for line in text:
         key, value = line.split(':')
         if key == 'BEGIN':
-            append = True
             entry: Dict[str, str] = {}
             continue
         elif key == 'END':
-            append = False
             l.append(entry)
         entry[key] = value
     return l
@@ -26,8 +23,8 @@ def main():
     fname = sys.argv[1]
 
     current_dir = os.path.dirname(__file__)
-    fname = os.path.join(current_dir, 'src/vgs-subject-codes.json')
-    with open(fname, 'r') as f:
+    source_codes = os.path.join(current_dir, 'src/vgs-subject-codes.json')
+    with open(source_codes, 'r') as f:
         subject_codes = json.load(f)
 
     with open(fname, 'r') as infile:
