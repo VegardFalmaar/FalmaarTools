@@ -107,7 +107,10 @@ def create_main_tex_and_compile(
         + r'}\input{poengfordeling.tex}"'
     os.system(command)
     os.chdir('..')
-    os.rename(
-        os.path.join(temp_tex_dir, 'poengfordeling.pdf'),
-        './' + out_fname
-    )
+    if os.path.isfile('./' + out_fname):
+        print(f'File {out_fname} already exists. Aborting.')
+    else:
+        os.rename(
+            os.path.join(temp_tex_dir, 'poengfordeling.pdf'),
+            './' + out_fname
+        )
