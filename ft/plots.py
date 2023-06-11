@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 
 
 def use_tex():
-    plt.style.use('seaborn')
     plt.rcParams.update({
         "text.usetex": True,
         "font.family": "DejaVu Sans",
