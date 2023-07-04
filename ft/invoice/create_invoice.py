@@ -71,5 +71,4 @@ def main():
         + invoice_num \
         + r'}\input{template}"'
     os.system(command)
-    os.system(command)
     os.rename('template.pdf', f'../{invoice_num}/Faktura{invoice_num}.pdf')
